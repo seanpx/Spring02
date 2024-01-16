@@ -11,7 +11,7 @@ public class Video {
     private String coverImg;
     private Date createTime;
 
-    public void video(){
+    public Video(){
 
     }
 
@@ -22,52 +22,52 @@ public class Video {
 
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setSummary(String summary) {
-        this.summary = summary;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public void setCoverImg(String coverImg) {
-        this.coverImg = coverImg;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {
         return title;
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public String getSummary() {
         return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
     }
 
     public int getPrice() {
         return price;
     }
 
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
     public String getCoverImg() {
         return coverImg;
     }
 
+    public void setCoverImg(String coverImg) {
+        this.coverImg = coverImg;
+    }
+
     public Date getCreateTime() {
         return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     @Override
