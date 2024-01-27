@@ -79,7 +79,7 @@ public class Video {
                 ", price=" + price +
                 ", coverImg='" + coverImg + '\'' +
                 ", createTime=" + createTime +
-                '}';
+                "}";
     }
 
 
