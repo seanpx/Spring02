@@ -3,6 +3,7 @@ package com.seanpx.controller;
 import com.seanpx.domain.Video;
 import com.seanpx.service.VideoService;
 import com.seanpx.service.impl.VideoServiceImpl;
+import com.seanpx.utils.JsonData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,6 +33,8 @@ public class VideoController {
 
         List<Video> list = videoService.listVideo();
 
-        return list;
+//        return list;
+
+        return JsonData.buildSuccess(list);
     }
 }
