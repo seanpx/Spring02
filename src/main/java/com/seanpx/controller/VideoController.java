@@ -14,7 +14,7 @@ import java.util.*;
 
 
 @RestController
-@RequestMapping("/api/v1/video")
+@RequestMapping("/api/v1/pub/video")
 public class VideoController {
     // @RequestMapping("list")
     // @RequestMapping(value = "list",method = RequestMethod.GET)
