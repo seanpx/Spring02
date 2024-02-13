@@ -2,6 +2,7 @@ package com.seanpx.domain;
 
 
 import java.util.Date;
+import java.util.List;
 
 public class Video {
     private int id;
@@ -10,6 +11,16 @@ public class Video {
     private int price;
     private String coverImg;
     private Date createTime;
+
+    public List<Chapter> getChapterList() {
+        return chapterList;
+    }
+
+    public void setChapterList(List<Chapter> chapterList) {
+        this.chapterList = chapterList;
+    }
+
+    private List<Chapter> chapterList;
 
     public Video(){
 
@@ -79,8 +90,7 @@ public class Video {
                 ", price=" + price +
                 ", coverImg='" + coverImg + '\'' +
                 ", createTime=" + createTime +
-                "}";
+                ", chapterList=" + chapterList +
+                '}';
     }
-
-
 }

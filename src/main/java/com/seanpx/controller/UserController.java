@@ -32,7 +32,7 @@ public class UserController {
         String token = userService.login(user.getUsername(),user.getPwd());
 
 //        return JsonData.buildSuccess("");
-        return token !=null ? JsonData.buildSuccess(token): JsonData.buildError("Incorrect Account/Password");
+        return token !=null ? JsonData.buildSuccess(token): JsonData.buildError("Incorrect Account / Password");
     }
 
 }
