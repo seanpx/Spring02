@@ -28,9 +28,9 @@ public class VideoController {
 //        map.put("key-3","video card 3");
 
 //        return map;
-
+        System.out.println("##VideoController.list -start: " );
         List<Video> list = videoService.listVideo();
-
+        System.out.println("##VideoController.list -end:" );
 //        return list;
 
         return JsonData.buildSuccess(list);
