@@ -13,10 +13,12 @@ public class Video {
     private Date createTime;
 
     public List<Chapter> getChapterList() {
+        System.out.println("##Video.getChapterList:" );
         return chapterList;
     }
 
     public void setChapterList(List<Chapter> chapterList) {
+        System.out.println("##Video.setChapterList:" );
         this.chapterList = chapterList;
     }
 
@@ -31,6 +33,7 @@ public class Video {
         this.title = title;
         this.createTime = new Date();
 
+        System.out.println("##Video.Video:" + this.id + "~" + this.title + "~" + this.createTime );
     }
 
     public int getId() {
@@ -83,6 +86,7 @@ public class Video {
 
     @Override
     public String toString() {
+        System.out.println("##Video.toString:" );
         return "Video{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
