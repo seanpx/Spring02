@@ -5,13 +5,25 @@ import java.util.Date;
 import java.util.List;
 
 public class Video {
+
+    static {
+        System.out.println("##Video.Video: " + "static{} " + "#1");
+    }
+
     private int id;
     private String title;
     private String summary;
+
+    static {
+        System.out.println("##Video.Video: " + "static{} " + "#2");
+    }
     private int price;
     private String coverImg;
     private Date createTime;
 
+    static {
+        System.out.println("##Video.Video: " + "static{} " + "#3");
+    }
     public List<Chapter> getChapterList() {
         System.out.println("##Video.getChapterList:" );
         return chapterList;
