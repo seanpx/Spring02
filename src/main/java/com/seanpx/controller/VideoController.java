@@ -41,6 +41,7 @@ public class VideoController {
 
         System.out.println("##VideoController: " + video.toString() );
 
-        return JsonData.buildSuccess("Video Saved Successfully");
+        //return JsonData.buildSuccess("Video Saved Successfully");
+        return JsonData.buildSuccess(video);
     }
 }
