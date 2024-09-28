@@ -3,9 +3,7 @@ package com.seanpx.mapper;
 import com.seanpx.domain.User;
 import org.springframework.stereotype.Repository;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
 @Repository
 public class UserMapper {
@@ -29,6 +27,13 @@ public class UserMapper {
         }
 
         return null;
+    }
+
+    public List<User> listUser(){
+        List<User> list = new ArrayList<>();
+        userMap.values();
+        list.addAll(userMap.values());
+        return list;
     }
 
 }

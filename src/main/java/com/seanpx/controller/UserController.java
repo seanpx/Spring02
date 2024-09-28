@@ -4,10 +4,7 @@ import com.seanpx.domain.User;
 import com.seanpx.service.UserService;
 import com.seanpx.utils.JsonData;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/pub/user")
@@ -33,6 +30,14 @@ public class UserController {
 
 //        return JsonData.buildSuccess("");
         return token !=null ? JsonData.buildSuccess(token): JsonData.buildError("Incorrect Account / Password");
+    }
+
+    /*
+     * Return
+     */
+    @GetMapping("list_user")
+    public JsonData listUser(){
+        return JsonData.buildSuccess(userService.listUser());
     }
 
 }
