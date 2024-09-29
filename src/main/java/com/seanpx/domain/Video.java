@@ -1,9 +1,13 @@
 package com.seanpx.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import java.util.Date;
 import java.util.List;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Video {
 
     static {
@@ -19,6 +23,7 @@ public class Video {
     }
     private int price;
     private String coverImg;
+    @JsonFormat(pattern = "yyyy-mm-dd hh:mm:ss", locale = "sg", timezone = "GMT+8")
     private Date createTime;
 
     static {
@@ -30,8 +35,9 @@ public class Video {
     }
 
     public void setChapterList(List<Chapter> chapterList) {
-        System.out.println("##Video.setChapterList:" );
+        System.out.println("##Video.setChapterList: Start" );
         this.chapterList = chapterList;
+        System.out.println("##Video.setChapterList: End" );
     }
 
     private List<Chapter> chapterList;
@@ -98,7 +104,7 @@ public class Video {
 
     @Override
     public String toString() {
-        System.out.println("##Video.toString:" );
+        System.out.println("##Video.toString: Start" );
         return "Video{" +
                 "id=" + id +
                 ", title='" + title + '\'' +

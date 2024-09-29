@@ -35,7 +35,7 @@ public class UserController {
     /*
      * Return
      */
-    @GetMapping("list_user")
+    @GetMapping("list")
     public JsonData listUser(){
         return JsonData.buildSuccess(userService.listUser());
     }

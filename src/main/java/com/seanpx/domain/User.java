@@ -1,8 +1,11 @@
 package com.seanpx.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class User {
     private int id;
     private String username;
+    @JsonIgnore
     private String pwd;
 
     public User(){
@@ -13,6 +16,8 @@ public class User {
         this.id = id;
         this.username = username;
         this.pwd = pwd;
+
+        System.out.println("User Class - User Method: " + this.id + " " + this.username + " " + this.pwd);
     }
 
     public int getId() {
