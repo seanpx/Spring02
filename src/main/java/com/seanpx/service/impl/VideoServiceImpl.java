@@ -16,7 +16,7 @@ public class VideoServiceImpl implements VideoService {
 
     @Override
     public List<Video> listVideo() {
-
+        System.out.println("##VideoServiceImpl List<Video> - start: " );
         return videoMapper.listVideo();
     }
 }

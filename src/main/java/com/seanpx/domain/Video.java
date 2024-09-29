@@ -3,6 +3,7 @@ package com.seanpx.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Date;
 import java.util.List;
@@ -22,7 +23,9 @@ public class Video {
         System.out.println("##Video.Video: " + "static{} " + "#2");
     }
     private int price;
+    @JsonProperty("cover_image")
     private String coverImg;
+    @JsonProperty("create_time")
     @JsonFormat(pattern = "yyyy-mm-dd hh:mm:ss", locale = "sg", timezone = "GMT+8")
     private Date createTime;
 

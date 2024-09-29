@@ -1,5 +1,7 @@
 package com.seanpx.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.seanpx.domain.Video;
 import com.seanpx.service.VideoService;
 import com.seanpx.service.impl.VideoServiceImpl;
@@ -21,7 +23,7 @@ public class VideoController {
 
     @GetMapping("list")
 //    public Object list(){
-    public JsonData list(){
+    public JsonData list() throws JsonProcessingException {
 //        Map<String,String> map = new LinkedHashMap<>();
 //        map.put("key-1","video card 1");
 //        map.put("key-2","video card 2");
@@ -30,9 +32,20 @@ public class VideoController {
 //        return map;
         System.out.println("##VideoController.list -start: " );
         List<Video> list = videoService.listVideo();
-        System.out.println("##VideoController.list -end:" );
-//        return list;
 
+
+        System.out.println("##VideoController.list - Create objectMapper to host videoService list as jsonStr in String form: " );
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        System.out.println("##VideoController.list - objectMapper - writeValueAsString: " );
+        String jsonStr = objectMapper.writeValueAsString(list);
+
+        System.out.println("##VideoController.list - print jsonStr: " );
+        System.out.println(jsonStr);
+
+        System.out.println("##VideoController.list -end:" );
+
+//        return list
         return JsonData.buildSuccess(list);
     }
 
