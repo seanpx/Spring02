@@ -1,6 +1,7 @@
 package com.seanpx.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.seanpx.domain.Video;
 import com.seanpx.service.VideoService;
@@ -43,8 +44,27 @@ public class VideoController {
         System.out.println("##VideoController.list - print jsonStr: " );
         System.out.println(jsonStr);
 
-        System.out.println("##VideoController.list -end:" );
+        // Now let's deserialize the JSON string back to List<Video>
+        // This is suggested by ChatGPT as the correct way to Deserialize the Video Json
+        System.out.println("##VideoController.list - Deserialize the JSON string back to List<Video>: ");
+        List<Video> deserializedList = objectMapper.readValue(jsonStr, new TypeReference<List<Video>>() {});
 
+        System.out.println("Deserialized List: ");
+        for (Video video : deserializedList) {
+            System.out.println(video);
+        }
+
+        System.out.println("Print deserializedList Directly: ");
+        System.out.println(deserializedList);
+
+        //Deserialization from XiaoDi Class
+        // - according to ChatGPT, it is not the correct way to Deserialize the Json
+        System.out.println("Deserialized List - XiaoDi Class : ");
+        List<Video> temp = objectMapper.readValue(jsonStr,List.class);
+        System.out.println(temp);
+
+
+        System.out.println("##VideoController.list -end:" );
 //        return list
         return JsonData.buildSuccess(list);
     }
