@@ -63,8 +63,9 @@ public class VideoController {
         List<Video> temp = objectMapper.readValue(jsonStr,List.class);
         System.out.println(temp);
 
-
         System.out.println("##VideoController.list -end:" );
+
+        System.out.println("##VideoController.list -end ####22222:" );
 //        return list
         return JsonData.buildSuccess(list);
     }
