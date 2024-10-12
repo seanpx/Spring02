@@ -22,7 +22,7 @@ public class Main {
         System.out.println("##Main.main -start SpringApplication: "  );
         SpringApplication app = new SpringApplication(Main.class);
         System.out.println("##Main.main -start set http port: "  );
-        app.setDefaultProperties(Collections.singletonMap("server.port","8081"));
+        //app.setDefaultProperties(Collections.singletonMap("server.port","8081"));
         System.out.println("##Main.main -start run(args): "  );
         app.run(args);
 

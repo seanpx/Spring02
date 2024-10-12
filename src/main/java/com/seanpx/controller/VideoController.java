@@ -65,7 +65,9 @@ public class VideoController {
 
         System.out.println("##VideoController.list -end:" );
 
-        System.out.println("##VideoController.list -end ####22222:" );
+        System.out.println("##VideoController.list -end ####33333:" );
+        //System.out.println(111);
+
 //        return list
         return JsonData.buildSuccess(list);
     }

@@ -38,11 +38,27 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
-            <scope>runtime</scope>
+            <!-- <scope>runtime</scope> -->
             <optional>true</optional>
         </dependency>
 
     </dependencies>
+<!--
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork>
+                    <image>
+                        <builder>paketobuildpacks/builder-jammy-base:latest</builder>
+                    </image>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+-->
 
     <build>
         <plugins>
@@ -53,6 +69,16 @@
                     <image>
                         <builder>paketobuildpacks/builder-jammy-base:latest</builder>
                     </image>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <fork>true</fork>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                 </configuration>
             </plugin>
         </plugins>
