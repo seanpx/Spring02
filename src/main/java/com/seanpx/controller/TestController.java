@@ -12,7 +12,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/test")
-@PropertySource({"classpath:pay.properties"})
+@PropertySource({"classpath:pay/pay.properties"})
 public class TestController {
 
     @Value("${wxpay.appid}")

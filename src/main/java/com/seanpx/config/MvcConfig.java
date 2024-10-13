@@ -13,7 +13,6 @@ public class MvcConfig implements WebMvcConfigurer {
                 .addResourceLocations("classpath:/META-INF/resources/",
                         "classpath:/resources/",
                         "classpath:/static/",
-                        "classpath:/public/",
-                        "classpath:/templates/");
+                        "classpath:/public/");
     }
 }
