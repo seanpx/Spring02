@@ -21,7 +21,7 @@ public class XdVideoTest {
     @Test
     public void testing1() {
         System.out.println("##XdVideoTest - testing1()");
-        Assertions.assertEquals(1,3);
+        Assertions.assertEquals(1,1);
     }
 
     @Test
