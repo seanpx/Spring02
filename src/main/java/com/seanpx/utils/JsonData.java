@@ -56,4 +56,13 @@ public class JsonData {
         return new JsonData(code,"","error occurred");
     }
 
+    @Override
+    public String toString() {
+        return "JsonData{" +
+                "code=" + code +
+                ", data=" + data +
+                ", msg='" + msg + '\'' +
+                '}';
+    }
+
 }
