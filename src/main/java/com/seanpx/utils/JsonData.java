@@ -56,6 +56,10 @@ public class JsonData {
         return new JsonData(code,"","error occurred");
     }
 
+    public static JsonData buildErrorWithCustomMessage(String msg, int code){
+        return new JsonData(code, "", msg); // Use the provided `msg` parameter instead of hardcoding "error occurred"
+    }
+
     @Override
     public String toString() {
         return "JsonData{" +
