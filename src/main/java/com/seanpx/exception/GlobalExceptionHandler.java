@@ -28,6 +28,7 @@ public class GlobalExceptionHandler {
     //Below handling returns error via error.html
     @ExceptionHandler(Exception.class)
     public ModelAndView handleException(Exception exception, Model model) {
+        System.out.println("##PX## GlobalExceptionHandler : #01#" );
         model.addAttribute("message", exception.getMessage());
         return new ModelAndView("error"); // Refers to the Thymeleaf template "error.html"
     }
