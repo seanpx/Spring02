@@ -10,7 +10,7 @@ import java.util.*;
 
 @Service
 public class UserServiceImpl implements UserService {
-    private static Map<String, User> sessionMap = new LinkedHashMap<>();
+    public static Map<String, User> sessionMap = new LinkedHashMap<>();
     @Autowired
     private UserMapper userMapper;
 
