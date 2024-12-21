@@ -24,7 +24,7 @@ public class UserController {
     @PostMapping("login")
     public JsonData login(@RequestBody User user){
 
-        System.out.println("user: " + user.toString());
+        System.out.println("##PXX - user: " + user.toString());
 
         String token = userService.login(user.getUsername(),user.getPwd());
 

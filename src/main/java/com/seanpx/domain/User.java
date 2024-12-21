@@ -1,11 +1,12 @@
 package com.seanpx.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class User {
     private int id;
     private String username;
-    @JsonIgnore
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String pwd;
 
     public User(){

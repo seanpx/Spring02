@@ -10,7 +10,7 @@ import org.thymeleaf.util.StringUtils;
 
 import java.io.IOException;
 
-@WebFilter(urlPatterns = "/api/v1/pri/*", filterName = "loginFilter")
+@WebFilter(urlPatterns = "/api/v1/prv/*", filterName = "loginFilter")
 public class LoginFilter implements Filter {
 
     @Override
