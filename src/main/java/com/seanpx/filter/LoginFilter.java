@@ -38,7 +38,9 @@ public class LoginFilter implements Filter {
             //reaching here means the token is not null already, then we should validate whether the token is valid.
             User user = UserServiceImpl.sessionMap.get(token);
             if(user!=null){
+                req.setAttribute("loginUser", user);
                 filterChain.doFilter(servletRequest,servletResponse);
+                return;
             }
         }
     }
