@@ -14,7 +14,10 @@ import org.thymeleaf.util.StringUtils;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebFilter(urlPatterns = "/api/v1/prv/*", filterName = "loginFilter")
+/*
+   Comment out below @WebFilter in order to test LoginInterceptor
+ */
+//@WebFilter(urlPatterns = "/api/v1/prv/*", filterName = "loginFilter")
 public class LoginFilter implements Filter {
 
     /* --- Comment out XdClass codes where the Json Response is returned directly from the LoginFilter

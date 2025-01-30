@@ -3,6 +3,7 @@ package com.seanpx.controller;
 import com.seanpx.domain.User;
 import com.seanpx.utils.JsonData;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,6 +13,8 @@ public class VideoOrderController2 {
 
     @RequestMapping("place2")
     public JsonData saveOrder(HttpServletRequest request) {
+        System.out.println("#PXX# VideoOrderController2 - place2 - Start");
+        HttpSession session = request.getSession();
 
         // Retrieve the user object placed by the filter
         User user = (User) request.getAttribute("loginUser");
