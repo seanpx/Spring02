@@ -1,6 +1,7 @@
 package com.seanpx.config;
 
 import com.seanpx.interceptor.LoginInterceptor;
+import com.seanpx.interceptor.LoginInterceptor2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,9 +17,21 @@ public class InterceptorConfig implements WebMvcConfigurer {
         return new LoginInterceptor();
     }
 
+    @Bean  // <-- Define LoginInterceptor as a Spring-managed bean
+    public LoginInterceptor2 loginInterceptor2() {
+        System.out.println("#PXX InterceptorConfig - Define LoginInterceptor2 as a Spring-managed bean");
+        return new LoginInterceptor2();
+    }
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(getLoginInterceptor())
+        registry.addInterceptor(loginInterceptor())
+                .order(1)
+                .addPathPatterns("/api/v1/prv/**")  // Apply to specific paths
+                .excludePathPatterns("/api/public/**"); // Exclude specific paths
+
+        registry.addInterceptor(loginInterceptor2())
+                .order(2)
                 .addPathPatterns("/api/v1/prv/**")  // Apply to specific paths
                 .excludePathPatterns("/api/public/**"); // Exclude specific paths
 
