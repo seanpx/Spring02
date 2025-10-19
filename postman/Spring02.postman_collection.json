@@ -1,0 +1,95 @@
+{
+  "info": {
+    "name": "Spring02 API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Public",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"user1\",\n  \"pwd\": \"abc123#1\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/pub/user/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "pub",
+                "user",
+                "login"
+              ]
+            },
+            "description": "Authenticate and receive a token. The Tests tab stores the token to the active environment as {{token}}."
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "let json = null;",
+                  "try { json = pm.response.json(); } catch(e) { }",
+                  "if (json && json.data) { pm.environment.set('token', json.data); }",
+                  "pm.test('Got token', function () { pm.expect(json && json.data).to.be.ok; });"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Private",
+      "item": [
+        {
+          "name": "Place Order (place2)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "token",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prv/order/place2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prv",
+                "order",
+                "place2"
+              ]
+            },
+            "description": "Requires token header set from the Login request. Returns success JSON including the userId."
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": []
+}
+

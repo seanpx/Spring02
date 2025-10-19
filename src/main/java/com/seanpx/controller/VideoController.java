@@ -5,7 +5,6 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.seanpx.domain.Video;
 import com.seanpx.service.VideoService;
-import com.seanpx.service.impl.VideoServiceImpl;
 import com.seanpx.utils.JsonData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -57,11 +56,10 @@ public class VideoController {
         System.out.println("Print deserializedList Directly: ");
         System.out.println(deserializedList);
 
-        //Deserialization from XiaoDi Class
-        // - according to ChatGPT, it is not the correct way to Deserialize the Json
-        System.out.println("Deserialized List - XiaoDi Class : ");
-        List<Video> temp = objectMapper.readValue(jsonStr,List.class);
-        System.out.println(temp);
+    //Deserialization using generic TypeReference to avoid unchecked conversion
+    System.out.println("Deserialized List - XiaoDi Class : ");
+    List<Video> temp = objectMapper.readValue(jsonStr, new TypeReference<List<Video>>() {});
+    System.out.println(temp);
 
         System.out.println("##VideoController.list -end:" );
 

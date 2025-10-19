@@ -1,11 +1,10 @@
 package com.seanpx.task;
 
 import org.springframework.scheduling.annotation.Async;
-import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
-import java.util.concurrent.Future;
+import java.util.concurrent.CompletableFuture;
 
 @Component
 @Async
@@ -38,7 +37,7 @@ public class AsyncTask {
         System.out.println(LocalDateTime.now() + " task 3");
     }
 
-    public Future<String> taskA1(){
+    public CompletableFuture<String> taskA1(){
         System.out.println(LocalDateTime.now() + " task A1 Start");
         try{
             Thread.sleep(2000L);
@@ -46,11 +45,10 @@ public class AsyncTask {
             e.printStackTrace();
         }
         System.out.println(LocalDateTime.now() + " task A1 Done");
-
-        return new AsyncResult<String>("###Task A1 Returned");
+        return CompletableFuture.completedFuture("###Task A1 Returned");
     }
 
-    public Future<String> taskA2(){
+    public CompletableFuture<String> taskA2(){
         System.out.println(LocalDateTime.now() + " task A2 Start");
         try{
             Thread.sleep(6000L);
@@ -58,8 +56,7 @@ public class AsyncTask {
             e.printStackTrace();
         }
         System.out.println(LocalDateTime.now() + " task A2 Done");
-
-        return new AsyncResult<String>("###Task A2 Returned");
+        return CompletableFuture.completedFuture("###Task A2 Returned");
     }
 
 }
