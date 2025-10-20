@@ -1,0 +1,47 @@
+server:
+  port: 8081
+
+spring:
+  config:
+    # Additional locations to search for config
+    location: "classpath:/,classpath:/pay/"
+    # Import external YAML (optional)
+    import: "optional:classpath:/pay/pay.yaml"
+    encoding: UTF-8
+
+  messages:
+    encoding: UTF-8
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  devtools:
+    restart:
+      enabled: true
+
+  datasource:
+    # NOTE: Both an H2 driver and a PostgreSQL driver are defined below,
+    # mirroring the original properties. This may be conflicting; keep as-is
+    # to preserve behavior. Consider removing one based on your target DB.
+    url: jdbc:h2:mem:testdb;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DATABASE_TO_UPPER=false
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+    driver-class-name: org.postgresql.Driver
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
+
